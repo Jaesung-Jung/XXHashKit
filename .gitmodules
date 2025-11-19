@@ -1,0 +1,3 @@
+[submodule "libxxhash"]
+	path = libxxhash
+	url = https://github.com/Cyan4973/xxHash
