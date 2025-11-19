@@ -21,8 +21,6 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import CryptoKit
-
 public struct XXH32: XXHashFunction, HashFunction {
   public static let blockByteCount = 16
   public static let byteCount = 4

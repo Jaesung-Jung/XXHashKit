@@ -23,6 +23,9 @@
 
 import XXHash
 
+@_exported import protocol CryptoKit.Digest
+@_exported import protocol CryptoKit.HashFunction
+
 // MARK: - XXHash
 
 protocol XXHash {
