@@ -1,10 +1,10 @@
-// swift-tools-version: 6.2
+// swift-tools-version: 6.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
-  name: "XXHashKit",
+  name: "SwiftXXHash",
   platforms: [
     .iOS(.v13),
     .macCatalyst(.v13),
@@ -15,17 +15,17 @@ let package = Package(
   ],
   products: [
     .library(
-      name: "XXHashKit",
-      targets: ["XXHashKit"]
+      name: "XXHash",
+      targets: ["XXHash"]
     ),
   ],
   targets: [
     .target(
-      name: "XXHashKit",
-      dependencies: ["XXHash"]
+      name: "XXHash",
+      dependencies: ["libxxhash"]
     ),
     .target(
-      name: "XXHash",
+      name: "libxxhash",
       sources: ["xxhash.c"],
       publicHeadersPath: ".",
       cSettings: [
@@ -33,8 +33,8 @@ let package = Package(
       ]
     ),
     .testTarget(
-      name: "XXHashKitTests",
-      dependencies: ["XXHashKit"]
+      name: "SwiftXXHashTests",
+      dependencies: ["XXHash"]
     ),
   ]
 )

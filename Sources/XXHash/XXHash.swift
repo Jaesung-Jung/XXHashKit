@@ -21,7 +21,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import XXHash
+import libxxhash
 
 @_exported import protocol CryptoKit.Digest
 @_exported import protocol CryptoKit.HashFunction

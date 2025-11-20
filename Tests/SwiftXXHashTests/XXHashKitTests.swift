@@ -1,5 +1,5 @@
 //
-//  XXHashKitTests.swift
+//  SwiftXXHashTests.swift
 //
 //  Copyright © 2025 Jaesung Jung. All rights reserved.
 //
@@ -23,7 +23,7 @@
 
 import Foundation
 import Testing
-@testable import XXHashKit
+@testable import XXHash
 
 extension Tag {
   @Tag static var xxh32: Self
@@ -36,6 +36,7 @@ extension Tag {
 
 @Test(.tags(.xxh32))
 func testXXH32() throws {
+  XXH32.hash(data: <#T##DataProtocol#>)
   let data = try #require("XXHash".data(using: .utf8))
 
   var xxh32 = XXH32()

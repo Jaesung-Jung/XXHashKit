@@ -1,6 +1,6 @@
-# XXHashKit
+# SwiftXXHash
 
-XXHashKit is a Swift wrapper around the official [xxHash](https://github.com/Cyan4973/xxHash) C library, providing **extremely fast hashing** with a clean, idiomatic Swift API.
+`SwiftXXHash` is a Swift wrapper around the official [xxHash](https://github.com/Cyan4973/xxHash) C library, providing **extremely fast hashing** with a clean, idiomatic Swift API.
 
 `xxHash` is an extremely fast non-cryptographic hash algorithm, working at RAM speed limit. It is proposed in four flavors (XXH32, XXH64, XXH3_64bits and XXH3_128bits). The latest variant, XXH3, offers improved performance across the board, especially on small data.
 
@@ -44,7 +44,7 @@ Add this to your `Package.swift`:
 
 ```swift
 dependencies: [
-  .package(url: "https://github.com/Jaesung-Jung/XXHashKit.git", from: "1.0.0")
+  .package(url: "https://github.com/Jaesung-Jung/SwiftXXHash.git", from: "1.0.0")
 ]
 ```
 
@@ -55,7 +55,7 @@ Then add the product to your target:
   .target(
     name: "YourApp",
       dependencies: [
-        .product(name: "XXHashKit", package: "XXHashKit")
+        .product(name: "XXHash", package: "SwiftXXHash")
       ]
   )
 ]
@@ -64,30 +64,46 @@ Then add the product to your target:
 ## Usage
 
 ```swift
-import XXHashKit
+import XXHash
 
 let data = Data("The quick brown fox jumps over the lazy dog".utf8)
 
-// XXH32
-var hasher = XXH32(seed: 1234) // default seed is 0.
+// [XXH32]
+// - One Shot
+let digest = XXH32.hash(data: data)
+
+// - Steam
+var hasher = XXH32() // default seed is 0.
 hasher.update(data: data)
 let digest = Data(hasher.finalize())
 
-// XXH64 with seed
-var hasher = XXH64(seed: 1234) // default seed is 0.
+// [XXH64]
+// - One Shot
+let digest = XXH64.hash(data: data)
+
+// - Stream
+var hasher = XXH64()
 hasher.update(data: data)
 let digest = Data(hasher.finalize())
 
-// XXH3 (XXH3-64bit)
-var hasher = XXH3(seed: 1234) // default seed is 0.
+// [XXH3 (XXH3-64bit)]
+// - One Shot
+let digest = XXH3.hash(data: data)
+
+// - Stream
+var hasher = XXH3()
 hasher.update(data: data)
 let digest = Data(hasher.finalize())
 
-// XXH128 (XXH3-128bit)
-var hasher = XXH128(seed: 1234) // default seed is 0.
+// [XXH128 (XXH3-128bit)]
+// - One Shot
+let digest = XXH3.hash(data: data)
+
+// - Stream
+var hasher = XXH128(seed: 1234)
 hasher.update(data: data)
 let digest = Data(hasher.finalize())
 ```
 
 ## LICENSE
-MIT license. See [LICENSE](https://github.com/Jaesung-Jung/XXHashKit/blob/main/LICENSE) for details.
+MIT license. See [LICENSE](https://github.com/Jaesung-Jung/SwiftXXHash/blob/main/LICENSE) for details.
